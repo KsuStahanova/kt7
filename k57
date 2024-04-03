@@ -1,0 +1,44 @@
+from appium import webdriver
+
+
+
+def pytest_configure(config):
+    driver = webdriver.Remote("http://your_selenoid_server:4444/wd/hub", desired_caps)
+    config.driver = driver
+
+
+def test_selenoid_web_interface():
+    config.driver.get("http://your_selenoid_server:4444/")
+    
+    
+    assert "Selenoid" in config.driver.title
+
+def test_video_recording():
+    config.driver.start_recording()
+
+
+    video = config.driver.stop_recording()
+
+
+def test_screenshot():
+    config.driver.save_screenshot("screenshot.png")
+    
+
+
+def test_addition_ios():
+    driver.find_element_by_name("Add").click()
+
+
+def test_subtraction_ios():
+    driver.find_element_by_name("Subtract").click()
+
+
+def test_multiplication_ios():
+    driver.find_element_by_name("Multiply").click()
+
+
+def test_division_ios():
+    driver.find_element_by_name("Divide").click()
+
+
+driver.quit()
